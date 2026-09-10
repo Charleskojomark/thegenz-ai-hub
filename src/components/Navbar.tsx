@@ -16,7 +16,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -24,6 +24,18 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -40,32 +52,35 @@ export default function Navbar() {
       <div style={{
         backgroundColor: 'var(--dark-navy)',
         color: 'var(--white)',
-        fontSize: '0.8rem',
+        fontSize: 'clamp(0.7rem, 1.8vw, 0.8rem)',
         fontWeight: 600,
-        letterSpacing: '0.05em',
+        letterSpacing: '0.04em',
         padding: '0.45rem 1rem',
         textAlign: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.08)'
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
+        overflow: 'hidden',
       }}>
         <span style={{
           display: 'inline-flex',
           alignItems: 'center',
-          gap: '0.5rem',
+          gap: '0.4rem',
           flexWrap: 'wrap',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          maxWidth: '100%',
         }}>
           <span style={{
             backgroundColor: 'var(--energy)',
             color: 'var(--white)',
             padding: '0.15rem 0.5rem',
             borderRadius: '4px',
-            fontSize: '0.7rem',
+            fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)',
             fontWeight: 800,
-            letterSpacing: '0.08em'
+            letterSpacing: '0.08em',
+            flexShrink: 0,
           }}>PRE-SEED • 2026</span>
-          <span>African AI Venture-Building Platform — Turning AI Talent and Ideas Into Companies.</span>
-          <Link href="/cohort" style={{ color: 'var(--energy)', textDecoration: 'underline', marginLeft: '0.25rem' }}>
-            AI Builder Cohort Applications Open →
+          <span style={{ display: 'inline' }}>African AI Venture-Building Platform</span>
+          <Link href="/cohort" style={{ color: 'var(--energy)', textDecoration: 'underline' }}>
+            AI Builder Cohort Open →
           </Link>
         </span>
       </div>
@@ -75,32 +90,45 @@ export default function Navbar() {
         position: 'sticky',
         top: 0,
         zIndex: 1000,
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.96)' : 'var(--white)',
+        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.97)' : 'var(--white)',
         backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
         borderBottom: scrolled ? '1px solid rgba(21, 0, 176, 0.12)' : '1px solid var(--gray-200)',
         boxShadow: scrolled ? 'var(--shadow-md)' : 'none',
-        transition: 'all 0.3s ease'
+        transition: 'all 0.3s ease',
+        width: '100%',
+        maxWidth: '100vw',
       }}>
         <div className="container" style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '4.75rem',
+          height: '5.25rem',
+          gap: '1rem',
         }}>
-          {/* Brand Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }} id="nav-brand-logo">
+          {/* Brand Logo — slightly larger */}
+          <Link
+            href="/"
+            style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}
+            id="nav-brand-logo"
+            aria-label="TheGenZ AI Hub — Home"
+          >
             <Image
               src="/thegenzlogo.png"
               alt="TheGenZ AI Hub Logo"
-              width={160}
-              height={55}
-              style={{ objectFit: 'contain', height: '42px', width: 'auto' }}
+              width={180}
+              height={60}
+              style={{ objectFit: 'contain', height: '48px', width: 'auto', display: 'block' }}
               priority
             />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav style={{ display: 'none', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
+          <nav
+            className="desktop-nav"
+            style={{ display: 'none', alignItems: 'center', gap: '1.75rem' }}
+            aria-label="Main navigation"
+          >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -109,12 +137,13 @@ export default function Navbar() {
                   href={link.href}
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '0.95rem',
+                    fontSize: '0.925rem',
                     fontWeight: isActive ? 700 : 600,
                     color: isActive ? 'var(--primary)' : 'var(--gray-700)',
                     position: 'relative',
-                    padding: '0.25rem 0',
+                    padding: '0.35rem 0',
                     transition: 'var(--transition)',
+                    whiteSpace: 'nowrap',
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) e.currentTarget.style.color = 'var(--primary)';
@@ -127,12 +156,12 @@ export default function Navbar() {
                   {isActive && (
                     <span style={{
                       position: 'absolute',
-                      bottom: -4,
+                      bottom: -2,
                       left: 0,
                       right: 0,
                       height: '2.5px',
                       backgroundColor: 'var(--energy)',
-                      borderRadius: '2px'
+                      borderRadius: '2px',
                     }} />
                   )}
                 </Link>
@@ -140,25 +169,28 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Action CTAs */}
-          <div style={{ display: 'none', alignItems: 'center', gap: '1rem' }} className="desktop-actions">
+          {/* Desktop Action CTAs */}
+          <div
+            className="desktop-actions"
+            style={{ display: 'none', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}
+          >
             <Link
               href="/connect"
               onClick={() => trackEvent('community_join', { location: 'navbar_desktop' })}
               className="btn btn-secondary"
-              style={{ padding: '0.65rem 1.25rem', fontSize: '0.875rem' }}
+              style={{ padding: '0.6rem 1.1rem', fontSize: '0.875rem', whiteSpace: 'nowrap' }}
             >
-              <MessageSquareCode size={16} color="var(--energy)" />
+              <MessageSquareCode size={15} color="var(--energy)" />
               Join Community
             </Link>
             <Link
               href="/apply"
               onClick={() => trackEvent('program_interest', { location: 'navbar_desktop_build' })}
               className="btn btn-primary"
-              style={{ padding: '0.65rem 1.4rem', fontSize: '0.875rem' }}
+              style={{ padding: '0.6rem 1.25rem', fontSize: '0.875rem', whiteSpace: 'nowrap' }}
             >
               Build With Us
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={15} />
             </Link>
           </div>
 
@@ -169,63 +201,88 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'transparent',
-              border: 'none',
+              background: mobileMenuOpen ? 'var(--primary-light)' : 'transparent',
+              border: '1.5px solid',
+              borderColor: mobileMenuOpen ? 'rgba(21, 0, 176, 0.2)' : 'var(--gray-200)',
+              borderRadius: 'var(--radius-xs)',
               cursor: 'pointer',
               padding: '0.5rem',
-              color: 'var(--dark-navy)'
+              color: 'var(--dark-navy)',
+              minWidth: '44px',
+              minHeight: '44px',
+              transition: 'var(--transition)',
+              flexShrink: 0,
             }}
             className="mobile-toggle"
             aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
             id="mobile-menu-btn"
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: 'var(--white)',
-            borderBottom: '2px solid var(--primary-light)',
-            boxShadow: 'var(--shadow-xl)',
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1.25rem'
-          }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: '1.15rem',
-                      fontWeight: 700,
-                      color: isActive ? 'var(--primary)' : 'var(--gray-800)',
-                      padding: '0.5rem 0',
-                      borderBottom: '1px solid var(--gray-100)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}
-                  >
-                    {link.name}
-                    {isActive && <span style={{ color: 'var(--energy)', fontSize: '0.85rem' }}>●</span>}
-                  </Link>
-                );
-              })}
-            </div>
+          <div
+            id="mobile-nav-drawer"
+            className="mobile-drawer"
+            style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              right: 0,
+              backgroundColor: 'var(--white)',
+              borderBottom: '2px solid var(--primary-light)',
+              boxShadow: 'var(--shadow-xl)',
+              padding: 'clamp(1.25rem, 4vw, 1.75rem)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1.25rem',
+              maxHeight: 'calc(100vh - 5.25rem - 2rem)',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              zIndex: 999,
+            }}
+          >
+            {/* Nav Links */}
+            <nav aria-label="Mobile navigation">
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0' }}>
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <li key={link.name}>
+                      <Link
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        style={{
+                          fontFamily: 'var(--font-heading)',
+                          fontSize: '1.1rem',
+                          fontWeight: 700,
+                          color: isActive ? 'var(--primary)' : 'var(--gray-800)',
+                          padding: '0.875rem 0',
+                          borderBottom: '1px solid var(--gray-100)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          minHeight: '52px',
+                        }}
+                      >
+                        {link.name}
+                        {isActive
+                          ? <span style={{ color: 'var(--energy)', fontSize: '0.75rem' }}>●</span>
+                          : <span style={{ color: 'var(--gray-300)', fontSize: '0.8rem' }}>›</span>
+                        }
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+            {/* Mobile CTAs */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', paddingTop: '0.25rem' }}>
               <Link
                 href="/connect"
                 onClick={() => {
@@ -233,7 +290,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                 }}
                 className="btn btn-secondary"
-                style={{ width: '100%', justifyContent: 'center' }}
+                style={{ width: '100%', justifyContent: 'center', minHeight: '52px', fontSize: '1rem' }}
               >
                 <MessageSquareCode size={18} color="var(--energy)" />
                 Join Community
@@ -245,7 +302,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                 }}
                 className="btn btn-primary"
-                style={{ width: '100%', justifyContent: 'center' }}
+                style={{ width: '100%', justifyContent: 'center', minHeight: '52px', fontSize: '1rem' }}
               >
                 Build With Us
                 <ArrowUpRight size={18} />
@@ -254,21 +311,6 @@ export default function Navbar() {
           </div>
         )}
       </header>
-
-      {/* Media Query Helpers for Desktop vs Mobile Header */}
-      <style jsx global>{`
-        @media (min-width: 900px) {
-          .desktop-nav {
-            display: flex !important;
-          }
-          .desktop-actions {
-            display: flex !important;
-          }
-          .mobile-toggle {
-            display: none !important;
-          }
-        }
-      `}</style>
     </>
   );
 }

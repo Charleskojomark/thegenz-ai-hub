@@ -542,8 +542,8 @@ export default function HomePage() {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+            gap: 'clamp(2rem, 5vw, 3rem)',
             alignItems: 'center'
           }}>
             <div>
@@ -636,7 +636,7 @@ export default function HomePage() {
             padding: 'clamp(2rem, 5vw, 3.5rem)',
             boxShadow: 'var(--shadow-lg)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
             gap: '2.5rem',
             alignItems: 'center'
           }}>
@@ -756,15 +756,20 @@ export default function HomePage() {
           </p>
 
           <div style={{
-            display: 'inline-flex',
+            display: 'flex',
             alignItems: 'center',
-            gap: '0.75rem',
-            padding: '0.75rem 1.5rem',
+            gap: '0.5rem',
+            padding: '0.75rem 1.25rem',
             backgroundColor: 'rgba(255, 255, 255, 0.08)',
             borderRadius: 'var(--radius-sm)',
             border: '1px solid rgba(255, 255, 255, 0.15)',
             color: 'var(--white)',
-            fontSize: '0.95rem'
+            fontSize: 'clamp(0.75rem, 2vw, 0.95rem)',
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            maxWidth: '100%',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
           }}>
             <span>Talent</span> → <span>Problem</span> → <span>Validation</span> → <span>MVP</span> → <span>Users</span> → <span>Venture</span> → <strong style={{ color: 'var(--gold)' }}>Company</strong>
           </div>

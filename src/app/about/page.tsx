@@ -96,7 +96,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="grid-2" style={{ alignItems: 'stretch' }}>
             {/* Who We Are */}
-            <div className="hub-card" style={{ padding: '3rem 2.5rem' }}>
+            <div className="hub-card" style={{ padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 3.5vw, 2.5rem)' }}>
               <div style={{
                 width: '48px',
                 height: '48px',
@@ -121,7 +121,7 @@ export default function AboutPage() {
             </div>
 
             {/* Why We Exist */}
-            <div className="hub-card" style={{ padding: '3rem 2.5rem', borderLeft: '5px solid var(--energy)' }}>
+            <div className="hub-card" style={{ padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 3.5vw, 2.5rem)', borderLeft: '5px solid var(--energy)' }}>
               <div style={{
                 width: '48px',
                 height: '48px',
@@ -153,13 +153,13 @@ export default function AboutPage() {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '2.5rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+            gap: 'clamp(1.5rem, 4vw, 2.5rem)'
           }}>
             <div style={{
               backgroundColor: 'var(--primary-light)',
               borderRadius: 'var(--radius-lg)',
-              padding: '3rem',
+              padding: 'clamp(1.5rem, 4vw, 3rem)',
               border: '1.5px solid rgba(21, 0, 176, 0.15)'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -177,7 +177,7 @@ export default function AboutPage() {
             <div style={{
               backgroundColor: 'var(--dark-navy)',
               borderRadius: 'var(--radius-lg)',
-              padding: '3rem',
+              padding: 'clamp(1.5rem, 4vw, 3rem)',
               color: 'var(--white)',
               border: '1.5px solid rgba(255, 255, 255, 0.1)'
             }}>

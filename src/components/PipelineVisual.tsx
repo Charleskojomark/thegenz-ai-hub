@@ -79,7 +79,7 @@ export default function PipelineVisual() {
       {/* 6 Stage Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))',
         gap: '1.25rem',
         marginBottom: '2.5rem'
       }}>
@@ -181,15 +181,15 @@ export default function PipelineVisual() {
         backgroundColor: 'var(--white)',
         borderRadius: 'var(--radius-lg)',
         border: `2px solid ${STAGES[selectedStage].color}`,
-        padding: '2rem 2.25rem',
+        padding: 'clamp(1.25rem, 3.5vw, 2.25rem)',
         boxShadow: 'var(--shadow-lg)',
         display: 'flex',
         flexWrap: 'wrap',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'space-between',
-        gap: '2rem'
+        gap: '1.5rem'
       }}>
-        <div style={{ flex: '1 1 500px' }}>
+        <div style={{ flex: '1 1 260px', minWidth: 0, maxWidth: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
             <span className="pill-badge" style={{
               backgroundColor: `${STAGES[selectedStage].color}15`,
@@ -236,7 +236,7 @@ export default function PipelineVisual() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexShrink: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexShrink: 0, width: '100%', maxWidth: '240px' }}>
           <Link href="/cohort" className="btn btn-primary">
             Experience In Cohort
             <ArrowRight size={16} />

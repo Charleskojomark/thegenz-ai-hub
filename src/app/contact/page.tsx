@@ -86,8 +86,8 @@ export default function ContactPage() {
         <div className="container">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+            gap: 'clamp(2rem, 5vw, 3rem)',
             alignItems: 'flex-start'
           }}>
             {/* Contact Channels Info */}

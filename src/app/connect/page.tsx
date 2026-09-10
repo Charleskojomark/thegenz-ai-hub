@@ -138,7 +138,7 @@ export default function ConnectPage() {
             padding: 'clamp(2rem, 4vw, 3rem)',
             boxShadow: 'var(--shadow-md)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
             gap: '2.5rem',
             alignItems: 'center'
           }}>
