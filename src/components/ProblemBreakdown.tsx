@@ -20,7 +20,7 @@ export default function ProblemBreakdown() {
           backgroundColor: '#FFF8F8',
           border: '1.5px solid #FFCDD2',
           borderRadius: 'var(--radius-md)',
-          padding: '2.25rem',
+          padding: 'clamp(1.25rem, 4vw, 2.25rem)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between'
@@ -51,7 +51,7 @@ export default function ProblemBreakdown() {
               </span>
             </div>
 
-            <h3 style={{ fontSize: '1.4rem', color: '#B71C1C', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.4rem)', color: '#B71C1C', marginBottom: '1rem' }}>
               Isolated Skills & Disconnected Steps
             </h3>
 
@@ -73,7 +73,9 @@ export default function ProblemBreakdown() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '0.6rem 1rem',
+                    flexWrap: 'wrap',
+                    gap: '0.4rem',
+                    padding: '0.65rem 0.85rem',
                     backgroundColor: 'var(--white)',
                     borderRadius: 'var(--radius-xs)',
                     border: '1px solid #FFCDD2',
@@ -83,11 +85,22 @@ export default function ProblemBreakdown() {
                 >
                   <span style={{ fontWeight: 600 }}>{step}</span>
                   {idx < steps.length - 1 ? (
-                    <span style={{ color: '#D32F2F', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                    <span style={{
+                      color: '#D32F2F',
+                      fontSize: 'clamp(0.7rem, 2vw, 0.75rem)',
+                      fontWeight: 700,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.25rem',
+                      flexShrink: 0,
+                      whiteSpace: 'nowrap'
+                    }}>
                       <AlertTriangle size={12} /> Fragmented Gap
                     </span>
                   ) : (
-                    <span style={{ color: '#9E9E9E', fontSize: '0.75rem' }}>Rarely Reached</span>
+                    <span style={{ color: '#9E9E9E', fontSize: 'clamp(0.7rem, 2vw, 0.75rem)', flexShrink: 0, whiteSpace: 'nowrap' }}>
+                      Rarely Reached
+                    </span>
                   )}
                 </div>
               ))}
@@ -101,7 +114,8 @@ export default function ProblemBreakdown() {
             fontSize: '0.85rem',
             color: '#B71C1C',
             fontWeight: 600,
-            textAlign: 'center'
+            textAlign: 'center',
+            marginTop: '1rem'
           }}>
             Knowing AI ≠ Knowing How To Build A Company
           </div>
@@ -112,7 +126,7 @@ export default function ProblemBreakdown() {
           backgroundColor: 'var(--white)',
           border: '2px solid var(--primary)',
           borderRadius: 'var(--radius-md)',
-          padding: '2.25rem',
+          padding: 'clamp(1.25rem, 4vw, 2.25rem)',
           boxShadow: 'var(--shadow-lg)',
           display: 'flex',
           flexDirection: 'column',
@@ -144,7 +158,7 @@ export default function ProblemBreakdown() {
               </span>
             </div>
 
-            <h3 style={{ fontSize: '1.4rem', color: 'var(--dark-navy)', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.2rem, 3vw, 1.4rem)', color: 'var(--dark-navy)', marginBottom: '1rem' }}>
               The Continuous Venture Engine
             </h3>
 
@@ -166,7 +180,9 @@ export default function ProblemBreakdown() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '0.6rem 1rem',
+                    flexWrap: 'wrap',
+                    gap: '0.4rem',
+                    padding: '0.65rem 0.85rem',
                     backgroundColor: 'var(--primary-light)',
                     borderRadius: 'var(--radius-xs)',
                     border: '1px solid rgba(21, 0, 176, 0.18)',
@@ -177,11 +193,13 @@ export default function ProblemBreakdown() {
                   <span style={{ fontWeight: 700 }}>{step}</span>
                   <span style={{
                     color: 'var(--primary)',
-                    fontSize: '0.75rem',
+                    fontSize: 'clamp(0.7rem, 2vw, 0.75rem)',
                     fontWeight: 700,
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.25rem'
+                    gap: '0.25rem',
+                    flexShrink: 0,
+                    whiteSpace: 'nowrap'
                   }}>
                     <CheckCircle2 size={13} color="var(--energy)" /> Integrated Support
                   </span>
@@ -190,7 +208,16 @@ export default function ProblemBreakdown() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+          <div
+            className="problem-action-row"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '1rem',
+              marginTop: '1.25rem'
+            }}
+          >
             <span style={{ fontSize: '0.85rem', color: 'var(--gray-600)', fontWeight: 600 }}>
               Structured, Guided & Accountable
             </span>

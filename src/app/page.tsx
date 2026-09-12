@@ -412,8 +412,25 @@ export default function HomePage() {
       </section>
 
       {/* 6. AI-POWERED WORKFLOWS */}
-      <section className="section section-dark">
-        <div className="container">
+      <section
+        className="section section-dark"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1920&q=80&auto=format&fit=crop")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+        }}
+      >
+        {/* Dark Navy Overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(8, 5, 30, 0.88)',
+          backdropFilter: 'blur(2px)',
+          WebkitBackdropFilter: 'blur(2px)',
+          zIndex: 0
+        }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="section-header text-center">
             <span className="pill-badge pill-energy" style={{ marginBottom: '1rem' }}>
               VENTURE ACCELERATION ENGINE
@@ -627,8 +644,26 @@ export default function HomePage() {
       </section>
 
       {/* 10. COMMUNITY SECTION */}
-      <section className="section section-light-blue" style={{ borderBottom: '1px solid var(--gray-200)' }}>
-        <div className="container">
+      <section
+        className="section section-light-blue"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=80&auto=format&fit=crop")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          borderBottom: '1px solid var(--gray-200)'
+        }}
+      >
+        {/* Soft Light-Blue Overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(246, 248, 255, 0.93)',
+          backdropFilter: 'blur(3px)',
+          WebkitBackdropFilter: 'blur(3px)',
+          zIndex: 0
+        }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{
             backgroundColor: 'var(--white)',
             borderRadius: 'var(--radius-lg)',
@@ -738,8 +773,23 @@ export default function HomePage() {
       </section>
 
       {/* 12. FUTURE VENTURES VISION */}
-      <section className="section section-dark">
-        <div className="container text-center" style={{ maxWidth: '880px', margin: '0 auto' }}>
+      <section
+        className="section section-dark"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&q=80&auto=format&fit=crop")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+        }}
+      >
+        {/* Deep Gradient Overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(8, 5, 30, 0.94) 0%, rgba(15, 0, 128, 0.88) 100%)',
+          zIndex: 0
+        }} />
+        <div className="container text-center" style={{ maxWidth: '880px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <span className="pill-badge pill-gold" style={{ marginBottom: '1rem' }}>
             LONG-TERM AMBITION
           </span>
@@ -792,11 +842,24 @@ export default function HomePage() {
       </section>
 
       {/* 14. FINAL HIGH-CONVERTING CTA BANNER */}
-      <section className="section" style={{
-        background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)',
-        color: 'var(--white)'
-      }}>
-        <div className="container text-center" style={{ maxWidth: '840px', margin: '0 auto' }}>
+      <section
+        className="section"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80&auto=format&fit=crop")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          color: 'var(--white)'
+        }}
+      >
+        {/* Vibrant Primary-to-Navy Gradient Overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(21, 0, 176, 0.92) 0%, rgba(8, 5, 30, 0.95) 100%)',
+          zIndex: 0
+        }} />
+        <div className="container text-center" style={{ maxWidth: '840px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <span className="pill-badge pill-energy" style={{ marginBottom: '1.25rem' }}>
             START YOUR JOURNEY TODAY
           </span>

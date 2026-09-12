@@ -98,6 +98,7 @@ export default function Navbar() {
         transition: 'all 0.3s ease',
         width: '100%',
         maxWidth: '100vw',
+        overflow: 'visible',
       }}>
         <div className="container" style={{
           display: 'flex',
@@ -222,6 +223,25 @@ export default function Navbar() {
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+
+        {/* Mobile Backdrop */}
+        {mobileMenuOpen && (
+          <div
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+            style={{
+              position: 'fixed',
+              top: '5.25rem',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(8, 5, 30, 0.45)',
+              backdropFilter: 'blur(2px)',
+              WebkitBackdropFilter: 'blur(2px)',
+              zIndex: 998,
+            }}
+          />
+        )}
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (

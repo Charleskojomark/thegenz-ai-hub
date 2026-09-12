@@ -219,7 +219,7 @@ export default function EcosystemCanvas() {
         backgroundColor: 'var(--white)',
         borderRadius: 'var(--radius-md)',
         border: `1.5px solid ${activeNode.color}`,
-        padding: '1.5rem 1.75rem',
+        padding: 'clamp(1rem, 3.5vw, 1.75rem)',
         boxShadow: 'var(--shadow-md)',
         position: 'relative',
         zIndex: 2,
@@ -227,12 +227,12 @@ export default function EcosystemCanvas() {
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: '1.5rem'
+        gap: '1.25rem'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', flex: '1 1 280px', minWidth: 0 }}>
           <div style={{
-            width: '52px',
-            height: '52px',
+            width: '48px',
+            height: '48px',
             borderRadius: 'var(--radius-sm)',
             backgroundColor: `${activeNode.color}15`,
             border: `1.5px solid ${activeNode.color}`,
@@ -242,21 +242,41 @@ export default function EcosystemCanvas() {
             color: activeNode.color,
             flexShrink: 0
           }}>
-            <activeNode.icon size={26} />
+            <activeNode.icon size={24} />
           </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
-              <h4 style={{ fontSize: '1.2rem', color: 'var(--dark-navy)' }}>{activeNode.label}</h4>
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.35rem' }}>
+              <h4 style={{
+                fontSize: 'clamp(1.1rem, 3vw, 1.25rem)',
+                color: 'var(--dark-navy)',
+                margin: 0,
+                wordBreak: 'normal',
+                overflowWrap: 'normal',
+                whiteSpace: 'normal',
+                lineHeight: 1.25,
+              }}>
+                {activeNode.label}
+              </h4>
               <span className="pill-badge" style={{
                 backgroundColor: `${activeNode.color}15`,
                 color: activeNode.color,
                 fontSize: '0.7rem',
-                padding: '0.2rem 0.6rem'
+                padding: '0.2rem 0.6rem',
+                flexShrink: 0,
+                whiteSpace: 'nowrap',
               }}>
                 {activeNode.badge}
               </span>
             </div>
-            <p style={{ color: 'var(--gray-600)', fontSize: '0.95rem', maxWidth: '650px' }}>
+            <p style={{
+              color: 'var(--gray-600)',
+              fontSize: 'clamp(0.875rem, 2vw, 0.95rem)',
+              maxWidth: '650px',
+              wordBreak: 'normal',
+              overflowWrap: 'normal',
+              lineHeight: 1.5,
+              margin: 0
+            }}>
               {activeNode.description}
             </p>
           </div>
@@ -265,10 +285,11 @@ export default function EcosystemCanvas() {
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '0.75rem',
+          gap: '0.5rem',
           fontSize: '0.85rem',
           color: 'var(--primary)',
-          fontWeight: 700
+          fontWeight: 700,
+          flexShrink: 0
         }}>
           <span>Flows into next phase</span>
           <ArrowRight size={18} color="var(--energy)" />

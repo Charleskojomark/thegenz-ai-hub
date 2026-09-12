@@ -187,7 +187,7 @@ export default function CohortRoadmap({ compact = false }: { compact?: boolean }
         {/* Right Action & Value Callout */}
         <div style={{
           backgroundColor: 'var(--primary-light)',
-          padding: '2rem',
+          padding: 'clamp(1.25rem, 4vw, 2rem)',
           borderRadius: 'var(--radius-md)',
           border: '1px solid rgba(21, 0, 176, 0.15)',
           display: 'flex',
@@ -196,20 +196,26 @@ export default function CohortRoadmap({ compact = false }: { compact?: boolean }
         }}>
           <div>
             <div style={{
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.5rem',
+              gap: '0.4rem',
               color: 'var(--primary-dark)',
               fontWeight: 800,
-              fontSize: '0.85rem',
+              fontSize: 'clamp(0.75rem, 2vw, 0.825rem)',
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              marginBottom: '0.5rem'
+              letterSpacing: '0.04em',
+              marginBottom: '0.5rem',
+              flexWrap: 'wrap'
             }}>
-              <Flame size={16} color="var(--energy)" />
-              Flagship Experience
+              <Flame size={15} color="var(--energy)" style={{ flexShrink: 0 }} />
+              <span>Flagship Experience</span>
             </div>
-            <h4 style={{ fontSize: '1.25rem', color: 'var(--dark-navy)', marginBottom: '0.5rem' }}>
+            <h4 style={{
+              fontSize: 'clamp(1.1rem, 3.5vw, 1.25rem)',
+              color: 'var(--dark-navy)',
+              marginBottom: '0.5rem',
+              lineHeight: 1.3
+            }}>
               From First Line of Code to Tested Product
             </h4>
             <p style={{ fontSize: '0.9rem', color: 'var(--gray-700)', lineHeight: 1.5 }}>
@@ -222,7 +228,11 @@ export default function CohortRoadmap({ compact = false }: { compact?: boolean }
               href="/apply"
               onClick={() => trackEvent('program_interest', { location: 'cohort_roadmap_apply', week: current.week })}
               className="btn btn-primary"
-              style={{ justifyContent: 'center' }}
+              style={{
+                justifyContent: 'center',
+                padding: '0.75rem 1rem',
+                fontSize: 'clamp(0.875rem, 2vw, 0.95rem)'
+              }}
             >
               Apply as a Builder
               <ArrowUpRight size={16} />
@@ -231,7 +241,15 @@ export default function CohortRoadmap({ compact = false }: { compact?: boolean }
               <Link
                 href="/cohort"
                 className="btn btn-outline"
-                style={{ justifyContent: 'center', backgroundColor: 'var(--white)' }}
+                style={{
+                  justifyContent: 'center',
+                  backgroundColor: 'var(--white)',
+                  whiteSpace: 'normal',
+                  lineHeight: 1.3,
+                  textAlign: 'center',
+                  padding: '0.75rem 1rem',
+                  fontSize: 'clamp(0.85rem, 2vw, 0.95rem)'
+                }}
               >
                 Full Cohort Syllabus & Details
               </Link>

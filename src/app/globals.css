@@ -850,9 +850,6 @@ a {
   animation: slideDown 0.2s ease-out forwards;
 }
 
-/* ─────────────────────────────────────────────
-   PIPELINE & ECOSYSTEM — mobile overrides
-───────────────────────────────────────────── */
 @media (max-width: 600px) {
   /* Ecosystem node buttons: 2 columns on small screens */
   .ecosystem-nodes {
@@ -863,12 +860,32 @@ a {
   .pipeline-grid {
     grid-template-columns: 1fr !important;
   }
+
+  /* Prevent button text from overflowing pill boundaries on small screens */
+  .btn {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  /* Problem breakdown action row stacks on mobile */
+  .problem-action-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.85rem !important;
+  }
+  .problem-action-row .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
 
 /* ─────────────────────────────────────────────
-   OVERFLOW GUARD — applied globally
+   OVERFLOW GUARD — applied globally (excluding header)
+   Header must NOT have overflow:hidden so mobile drawer
+   and dropdown menus are not clipped.
 ───────────────────────────────────────────── */
-main, header, footer, section, article, aside, nav {
+main, footer, section, article, aside, nav {
   max-width: 100%;
   overflow-x: hidden;
 }
