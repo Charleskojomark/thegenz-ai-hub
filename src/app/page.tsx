@@ -156,13 +156,29 @@ export default function HomePage() {
   return (
     <div>
       {/* 1. HERO SECTION */}
-      <section className="section" style={{
-        paddingTop: 'clamp(3.5rem, 6vw, 6rem)',
-        paddingBottom: 'clamp(3.5rem, 6vw, 5.5rem)',
-        background: 'radial-gradient(ellipse at 50% 0%, rgba(21, 0, 176, 0.07) 0%, rgba(250, 251, 255, 1) 70%)',
-        borderBottom: '1px solid var(--gray-200)'
-      }}>
-        <div className="container">
+      <section
+        className="section"
+        style={{
+          paddingTop: 'clamp(3.5rem, 6vw, 6rem)',
+          paddingBottom: 'clamp(3.5rem, 6vw, 5.5rem)',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+          position: 'relative',
+          borderBottom: '1px solid var(--gray-200)',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Soft Modern Tech Radial Overlay for Pristine Readability */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 255, 0.93) 55%, rgba(240, 243, 255, 0.98) 100%)',
+          backdropFilter: 'blur(1px)',
+          WebkitBackdropFilter: 'blur(1px)',
+          zIndex: 0,
+        }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '960px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
               <span className="pill-badge pill-energy">
