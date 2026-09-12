@@ -38,10 +38,12 @@ export const metadata: Metadata = {
     siteName: 'TheGenZ AI Hub',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://thegenz-ai-hub.vercel.app/og-image.png',
+        secureUrl: 'https://thegenz-ai-hub.vercel.app/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'TheGenZ AI Hub — African AI Venture-Building Platform',
+        type: 'image/png',
+        alt: 'TheGenZ AI Hub — Turning AI Talent and Ideas Into Companies',
       }
     ],
     locale: 'en_US',
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
     title: 'TheGenZ AI Hub — Turning AI Talent and Ideas Into Companies',
     description:
       'African AI venture-building platform connecting AI talent, enterprise problems, and venture capital resources.',
-    images: ['/og-image.png'],
+    images: ['https://thegenz-ai-hub.vercel.app/og-image.png'],
     creator: '@thegenzaihub',
     site: '@thegenzaihub',
   },
@@ -101,6 +103,20 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
+        
+        {/* Direct Open Graph & Crawler Tags for WhatsApp, Facebook, LinkedIn, iMessage */}
+        <meta property="og:image" content="https://thegenz-ai-hub.vercel.app/og-image.png" />
+        <meta property="og:image:secure_url" content="https://thegenz-ai-hub.vercel.app/og-image.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="TheGenZ AI Hub — Turning AI Talent and Ideas Into Companies" />
+        
+        <meta name="twitter:image" content="https://thegenz-ai-hub.vercel.app/og-image.png" />
+        <meta name="twitter:image:alt" content="TheGenZ AI Hub — Turning AI Talent and Ideas Into Companies" />
+        <meta name="image" content="https://thegenz-ai-hub.vercel.app/og-image.png" />
+        <link rel="image_src" href="https://thegenz-ai-hub.vercel.app/og-image.png" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
