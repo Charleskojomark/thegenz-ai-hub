@@ -48,43 +48,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Pre-seed Announcement Bar */}
-      <div style={{
-        backgroundColor: 'var(--dark-navy)',
-        color: 'var(--white)',
-        fontSize: 'clamp(0.7rem, 1.8vw, 0.8rem)',
-        fontWeight: 600,
-        letterSpacing: '0.04em',
-        padding: '0.45rem 1rem',
-        textAlign: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
-        overflow: 'hidden',
-      }}>
-        <span style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.4rem',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          maxWidth: '100%',
-        }}>
-          <span style={{
-            backgroundColor: 'var(--energy)',
-            color: 'var(--white)',
-            padding: '0.15rem 0.5rem',
-            borderRadius: '4px',
-            fontSize: 'clamp(0.6rem, 1.5vw, 0.7rem)',
-            fontWeight: 800,
-            letterSpacing: '0.08em',
-            flexShrink: 0,
-          }}>PRE-SEED • 2026</span>
-          <span style={{ display: 'inline' }}>African AI Venture-Building Platform</span>
-          <Link href="/cohort" style={{ color: 'var(--energy)', textDecoration: 'underline' }}>
-            AI Builder Cohort Open →
-          </Link>
-        </span>
-      </div>
-
       {/* Main Sticky Navbar */}
       <header style={{
         position: 'sticky',

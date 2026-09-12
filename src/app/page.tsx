@@ -164,10 +164,7 @@ export default function HomePage() {
       }}>
         <div className="container">
           <div style={{ maxWidth: '960px', margin: '0 auto', textAlign: 'center', marginBottom: '3rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
-              <span className="pill-badge pill-preseed">
-                PRE-SEED • 2026
-              </span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
               <span className="pill-badge pill-energy">
                 AFRICAN AI VENTURE-BUILDING PLATFORM
               </span>
