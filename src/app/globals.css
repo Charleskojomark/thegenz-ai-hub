@@ -753,7 +753,10 @@ a {
   .pill-badge {
     font-size: 0.7rem;
     padding: 0.3rem 0.75rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
+    white-space: normal;
+    line-height: 1.35;
+    text-align: center;
   }
 
   .btn {

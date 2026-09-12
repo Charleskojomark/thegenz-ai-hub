@@ -53,7 +53,8 @@ export const metadata: Metadata = {
     description:
       'African AI venture-building platform connecting AI talent, enterprise problems, and venture capital resources.',
     images: ['/og-image.png'],
-    creator: '@TheGenZAIHub',
+    creator: '@thegenzaihub',
+    site: '@thegenzaihub',
   },
   robots: {
     index: true,
@@ -87,9 +88,9 @@ export default function RootLayout({
     description:
       'African AI venture-building platform transforming AI talent and ideas into scalable companies.',
     sameAs: [
-      'https://twitter.com/',
-      'https://linkedin.com/',
-      'https://facebook.com/'
+      'https://x.com/thegenzaihub',
+      'https://www.linkedin.com/company/thegenzaihub/',
+      'https://www.facebook.com/share/1BwdUcpYnA'
     ],
     foundingDate: '2026',
     areaServed: 'Africa',

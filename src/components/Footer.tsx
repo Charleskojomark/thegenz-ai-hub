@@ -8,9 +8,9 @@ import { trackEvent } from '@/lib/analytics';
 
 export default function Footer() {
   const socialLinks = [
-    { label: 'LinkedIn', href: 'https://linkedin.com' },
-    { label: 'X (Twitter)', href: 'https://x.com' },
-    { label: 'Facebook', href: 'https://facebook.com' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/thegenzaihub/' },
+    { label: 'X (Twitter)', href: 'https://x.com/thegenzaihub' },
+    { label: 'Facebook', href: 'https://www.facebook.com/share/1BwdUcpYnA' },
   ];
 
   return (

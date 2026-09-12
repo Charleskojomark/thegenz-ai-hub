@@ -622,12 +622,21 @@ export default function HomePage() {
             <div style={{
               backgroundColor: 'var(--dark-navy)',
               borderRadius: 'var(--radius-lg)',
-              padding: '2.5rem',
+              padding: 'clamp(1.25rem, 4vw, 2.5rem)',
               color: 'var(--white)',
               boxShadow: 'var(--shadow-xl)',
               border: '1px solid rgba(255,255,255,0.1)'
             }}>
-              <span className="pill-badge pill-gold" style={{ marginBottom: '1rem' }}>
+              <span className="pill-badge pill-gold" style={{
+                marginBottom: '1rem',
+                whiteSpace: 'normal',
+                wordBreak: 'break-word',
+                lineHeight: 1.35,
+                display: 'inline-block',
+                letterSpacing: '0.04em',
+                maxWidth: '100%',
+                textAlign: 'left'
+              }}>
                 ENTERPRISE & SME COLLABORATION
               </span>
               <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginBottom: '1rem' }}>
