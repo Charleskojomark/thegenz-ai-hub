@@ -47,7 +47,9 @@ export const metadata: Metadata = {
     images: ['/thegenzlogo.png']
   },
   icons: {
-    icon: '/thegenzlogo.png'
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   }
 };
 
@@ -59,7 +61,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/thegenzlogo.png" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body>
         <Navbar />

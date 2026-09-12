@@ -67,10 +67,10 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '5.25rem',
+          height: 'clamp(4.5rem, 8vw, 5.25rem)',
           gap: '1rem',
         }}>
-          {/* Brand Logo — slightly larger */}
+          {/* Brand Logo */}
           <Link
             href="/"
             style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}
@@ -82,7 +82,7 @@ export default function Navbar() {
               alt="TheGenZ AI Hub Logo"
               width={180}
               height={60}
-              style={{ objectFit: 'contain', height: '48px', width: 'auto', display: 'block' }}
+              style={{ objectFit: 'contain', height: 'clamp(42px, 7vw, 48px)', width: 'auto', display: 'block' }}
               priority
             />
           </Link>
@@ -158,22 +158,22 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger Toggle — Matches exact rounded squircle button with 3 clean bars */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: mobileMenuOpen ? 'var(--primary-light)' : 'transparent',
-              border: '1.5px solid',
-              borderColor: mobileMenuOpen ? 'rgba(21, 0, 176, 0.2)' : 'var(--gray-200)',
-              borderRadius: 'var(--radius-xs)',
+              backgroundColor: '#FFFFFF',
+              border: '1.5px solid #E2E8F0',
+              borderRadius: '13px',
               cursor: 'pointer',
-              padding: '0.5rem',
+              padding: '0.6rem',
               color: 'var(--dark-navy)',
-              minWidth: '44px',
-              minHeight: '44px',
+              width: '46px',
+              height: '46px',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)',
               transition: 'var(--transition)',
               flexShrink: 0,
             }}
@@ -183,7 +183,22 @@ export default function Navbar() {
             aria-controls="mobile-nav-drawer"
             id="mobile-menu-btn"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? (
+              <X size={22} strokeWidth={2.4} color="var(--dark-navy)" />
+            ) : (
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '4.5px',
+                width: '21px',
+              }}>
+                <span style={{ display: 'block', width: '21px', height: '2.4px', backgroundColor: 'var(--dark-navy)', borderRadius: '2px' }} />
+                <span style={{ display: 'block', width: '21px', height: '2.4px', backgroundColor: 'var(--dark-navy)', borderRadius: '2px' }} />
+                <span style={{ display: 'block', width: '21px', height: '2.4px', backgroundColor: 'var(--dark-navy)', borderRadius: '2px' }} />
+              </div>
+            )}
           </button>
         </div>
 
@@ -194,7 +209,7 @@ export default function Navbar() {
             aria-hidden="true"
             style={{
               position: 'fixed',
-              top: '5.25rem',
+              top: 'clamp(4.5rem, 8vw, 5.25rem)',
               left: 0,
               right: 0,
               bottom: 0,
