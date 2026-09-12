@@ -67,10 +67,10 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: 'clamp(4.5rem, 8vw, 5.25rem)',
+          height: 'clamp(4.85rem, 9vw, 5.5rem)',
           gap: '1rem',
         }}>
-          {/* Brand Logo */}
+          {/* Brand Logo — Prominent & Bold on Mobile & Desktop */}
           <Link
             href="/"
             style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}
@@ -78,11 +78,16 @@ export default function Navbar() {
             aria-label="TheGenZ AI Hub — Home"
           >
             <Image
-              src="/thegenzlogo.png"
+              src="/thegenzlogo-cropped.png"
               alt="TheGenZ AI Hub Logo"
-              width={180}
-              height={60}
-              style={{ objectFit: 'contain', height: 'clamp(42px, 7vw, 48px)', width: 'auto', display: 'block' }}
+              width={220}
+              height={75}
+              style={{
+                objectFit: 'contain',
+                height: 'clamp(52px, 12vw, 64px)',
+                width: 'auto',
+                display: 'block'
+              }}
               priority
             />
           </Link>

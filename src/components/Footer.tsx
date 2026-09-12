@@ -42,11 +42,11 @@ export default function Footer() {
               maxWidth: '100%',
             }}>
               <Image
-                src="/thegenzlogo.png"
+                src="/thegenzlogo-cropped.png"
                 alt="TheGenZ AI Hub"
-                width={150}
-                height={50}
-                style={{ height: '36px', width: 'auto', display: 'block', maxWidth: '100%' }}
+                width={160}
+                height={55}
+                style={{ height: '42px', width: 'auto', display: 'block', maxWidth: '100%' }}
               />
             </div>
             <div style={{
