@@ -95,7 +95,7 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <nav
             className="desktop-nav"
-            style={{ display: 'none', alignItems: 'center', gap: '1.75rem' }}
+            style={{ display: 'none', alignItems: 'center', gap: '1.75rem', overflow: 'visible' }}
             aria-label="Main navigation"
           >
             {navLinks.map((link) => {
