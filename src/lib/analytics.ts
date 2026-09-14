@@ -6,6 +6,7 @@ export type TrackingEventType =
   | 'mentor_application'
   | 'partner_inquiry'
   | 'community_join'
+  | 'community_form_completed'
   | 'program_interest';
 
 export function trackEvent(eventType: TrackingEventType, metadata?: Record<string, any>) {

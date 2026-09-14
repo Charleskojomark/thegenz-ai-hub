@@ -14,6 +14,8 @@ import {
   Share2
 } from 'lucide-react';
 
+import CommunityIntakeForm from '@/components/CommunityIntakeForm';
+
 export const metadata = {
   title: 'Connect & Ecosystem | TheGenZ AI Hub',
   description:
@@ -27,9 +29,9 @@ export default function ConnectPage() {
       badge: 'IMMEDIATE ACCESS',
       badgeColor: 'pill-energy',
       desc: 'Our real-time conversational space where builders exchange code, discuss latest AI releases, form hack squads, and receive instant announcements.',
-      action: 'Join WhatsApp Group',
-      href: 'https://chat.whatsapp.com/',
-      isExternal: true,
+      action: 'Fill Form & Join',
+      href: '#join-form',
+      isExternal: false,
       icon: MessageSquareCode,
       highlight: true
     },
@@ -125,13 +127,11 @@ export default function ConnectPage() {
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <a
-                href="https://chat.whatsapp.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#join-form"
                 className="btn btn-energy btn-lg"
               >
                 <MessageSquareCode size={20} />
-                <span>Join WhatsApp Community</span>
+                <span>Join Community (Fill 60s Form)</span>
               </a>
               <Link href="/partner" className="btn btn-secondary btn-lg">
                 Partner With Us
@@ -141,15 +141,24 @@ export default function ConnectPage() {
         </div>
       </section>
 
+      {/* Community Intake Form Section */}
+      <section className="section section-light-blue" style={{ borderBottom: '1px solid var(--gray-200)', paddingTop: 'clamp(2.5rem, 5vw, 4rem)', paddingBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
+        <div className="container">
+          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+            <CommunityIntakeForm id="join-form" />
+          </div>
+        </div>
+      </section>
+
       {/* Featured Community Banner */}
-      <section className="section section-light-blue" style={{ borderBottom: '1px solid var(--gray-200)' }}>
+      <section className="section" style={{ backgroundColor: 'var(--white)', borderBottom: '1px solid var(--gray-200)' }}>
         <div className="container">
           <div style={{
-            backgroundColor: 'var(--white)',
+            backgroundColor: 'var(--bg-page)',
             borderRadius: 'var(--radius-lg)',
-            border: '2px solid var(--primary)',
+            border: '1.5px solid var(--primary-light)',
             padding: 'clamp(2rem, 4vw, 3rem)',
-            boxShadow: 'var(--shadow-md)',
+            boxShadow: 'var(--shadow-sm)',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(260px, 100%), 1fr))',
             gap: '2.5rem',
@@ -159,11 +168,11 @@ export default function ConnectPage() {
               <span className="pill-badge pill-energy" style={{ marginBottom: '1rem' }}>
                 PRIMARY CONVERSATIONAL LAYER
               </span>
-              <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--dark-navy)' }}>
-                TheGenZ AI Hub WhatsApp Community
+              <h2 style={{ fontSize: '1.85rem', marginBottom: '1rem', color: 'var(--dark-navy)' }}>
+                The Heartbeat of African AI Innovation
               </h2>
               <p style={{ color: 'var(--gray-700)', fontSize: '1.05rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                Our WhatsApp community is the heartbeat of our day-to-day interactions. Here, builders collaborate across borders, share debugging insights, discuss new research models, and form teams for the AI Builder Cohort.
+                Our WhatsApp community is the heartbeat of our day-to-day interactions. Here, builders collaborate across borders, share debugging insights, discuss new research models, and form teams for the upcoming AI Builder Cohort.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '2rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem', color: 'var(--gray-800)' }}>
@@ -178,13 +187,11 @@ export default function ConnectPage() {
               </div>
 
               <a
-                href="https://chat.whatsapp.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-energy btn-lg"
+                href="#join-form"
+                className="btn btn-primary"
               >
-                <MessageSquareCode size={20} />
-                <span>Join Official WhatsApp Layer</span>
+                <MessageSquareCode size={18} />
+                <span>Fill 60s Form to Get WhatsApp Link</span>
               </a>
             </div>
 
