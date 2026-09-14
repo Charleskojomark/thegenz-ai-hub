@@ -94,12 +94,25 @@ export default function ConnectPage() {
     <div>
       {/* Hero */}
       <section className="section" style={{
-        backgroundColor: 'var(--white)',
+        paddingTop: 'clamp(3.5rem, 6vw, 6rem)',
+        paddingBottom: 'clamp(3.5rem, 6vw, 5.5rem)',
+        backgroundImage: 'url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 30%',
+        position: 'relative',
         borderBottom: '1px solid var(--gray-200)',
-        paddingTop: 'clamp(4rem, 6vw, 6rem)',
-        paddingBottom: 'clamp(3.5rem, 6vw, 5rem)'
+        overflow: 'hidden',
       }}>
-        <div className="container">
+        {/* Soft Modern Tech Radial Overlay for Pristine Readability */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.88) 0%, rgba(248, 250, 255, 0.93) 55%, rgba(240, 243, 255, 0.98) 100%)',
+          backdropFilter: 'blur(1px)',
+          WebkitBackdropFilter: 'blur(1px)',
+          zIndex: 0,
+        }} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'center' }}>
             <span className="pill-badge pill-energy" style={{ marginBottom: '1.25rem' }}>
               PAN-AFRICAN AI NETWORK
